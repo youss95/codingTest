@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let origin = [...arr];
+        origin.sort(); //sort는 원본 수정됨
+        //원본과 비교
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== origin[i]) answer.push(i + 1);
+          console.log(arr[i], origin[i]);
+        }
+        // console.log(origin);
+        return answer;
+      }
+
+      let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
