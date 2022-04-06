@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(times) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        let T_line = [];
+        for (let x of times) {
+          T_line.push([x[0], 1]); //입장
+          T_line.push([x[1], -1]); //퇴장
+        }
+        console.log(T_line);
+        T_line.sort((a, b) => {
+          if (a[0] === b[0]) return a[1] - b[1];
+          else return a[0] - b[0];
+        });
+        let cnt = 0;
+        for (let x of T_line) {
+          if (x[1] === 1) cnt++;
+          else cnt--;
+          answer = Math.max(answer, cnt);
+        }
+        return answer;
+      }
+
+      let arr = [
+        [13, 18],
+        [12, 15],
+        [15, 20],
+        [20, 30],
+        [5, 14],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
