@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //선텍정렬 : 최솟값을 열의 가장 왼쪽과 교체
+      function solution(arr) {
+        let answer = 0;
+        for (let i = 0; i < arr.length; i++) {
+          let min = i;
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) min = j;
+          }
+          [arr[i], arr[min]] = [arr[min], arr[i]];
+        }
+        return arr;
+      }
+
+      let arr = [13, 5, 11, 7, 23, 15];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
