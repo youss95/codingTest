@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(nums) {
+        //배열에 맞은개수,수포자번호 담자
+        //배열 탐색
+        //1 2 3 4 5 / 21 23 24 25 / 33 11 22 44 55
+        let first = [1, 2, 3, 4, 5];
+        let second = [2, 1, 2, 3, 2, 4, 2, 5];
+        let third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+        var answer = [];
+        let a1 = nums.filter((a, i) => a === first[i % first.length]).length;
+        let a2 = nums.filter((a, i) => a === second[i % second.length]).length;
+        let a3 = nums.filter((a, i) => a === third[i % third.length]).length;
+        let max = Math.max(a1, a2, a3);
+
+        if (max === a1) answer.push(1);
+        if (max === a2) answer.push(2);
+        if (max === a3) answer.push(3);
+        return answer;
+      }
+      let nums = [1, 3, 2, 4, 2];
+      console.log(solution(nums));
+    </script>
+  </body>
+</html>

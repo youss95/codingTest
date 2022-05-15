@@ -7,31 +7,31 @@
     <script>
       function solution(times) {
         let answer = Number.MIN_SAFE_INTEGER;
-        let T_line = [];
-        for (let x of times) {
-          T_line.push([x[0], 1]); //입장
-          T_line.push([x[1], -1]); //퇴장
-        }
-        console.log(T_line);
-        T_line.sort((a, b) => {
+        times.sort((a, b) => {
           if (a[0] === b[0]) return a[1] - b[1];
           else return a[0] - b[0];
         });
-        let cnt = 0;
-        for (let x of T_line) {
-          if (x[1] === 1) cnt++;
-          else cnt--;
-          answer = Math.max(answer, cnt);
+        console.log(times);
+        let tmp = times[0][1];
+        let cnt = 1;
+        for (let i = 1; i < times.length; i++) {
+          if (times[i][0] < tmp) cnt++;
+          else {
+            cnt = 1;
+            tmp = times[i][1];
+          }
+          answer = Math.max(cnt, answer);
         }
         return answer;
       }
-
       let arr = [
-        [13, 18],
+        [14, 18],
         [12, 15],
         [15, 20],
         [20, 30],
         [5, 14],
+        [14, 15],
+        [14, 20],
       ];
       console.log(solution(arr));
     </script>

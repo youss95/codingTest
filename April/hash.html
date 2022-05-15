@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>삽입정렬</title>
+  </head>
+  <body>
+    <script>
+      function solution(participant, completion) {
+        let answer = "";
+        const map = new Map();
+        for (let x of participant) {
+          if (map.has(x)) map.set(x, map.get(x) + 1);
+          else map.set(x, 1);
+        }
+        console.log(map);
+        for (let x of completion) {
+          if (map.has(x)) map.set(x, map.get(x) - 1);
+        }
+        console.log(map);
+        for (let [key, val] of map) {
+          if (val > 0) {
+            answer = key;
+          }
+        }
+        return answer;
+      }
+      let arr = ["marina", "josipa", "nikola", "vinko", "filipa"];
+      let com = ["josipa", "filipa", "marina", "nikola"];
+      console.log(solution(arr, com));
+    </script>
+  </body>
+</html>
+
+const map = new Map(); for(let i = 0; i < participant.length; i++) { let a =
+participant[i], b = completion[i]; map.set(a, (map.get(a) || 0) + 1); map.set(b,
+(map.get(b) || 0) - 1); } for(let [k, v] of map) { if(v > 0) return k; } return
+'nothing';

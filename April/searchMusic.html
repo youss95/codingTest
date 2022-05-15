@@ -5,11 +5,11 @@
   </head>
   <body>
     <script>
-      function count(songs, capacity) {
+      function count(songs, mid) {
         let cnt = 1;
-        sum = 0;
+        let sum = 0;
         for (let x of songs) {
-          if (sum + x > capacity) {
+          if (sum + x > mid) {
             cnt++;
             sum = x;
           } else {

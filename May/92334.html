@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(id_list, report, k) {
+        let answer = [];
+        let reports = [...new Set(report)].map((x) => x.split(" "));
+        console.log(reports);
+        let count = new Map();
+        for (let bad of reports) {
+          count.set(bad[1], count.get(bad[1]) + 1 || 1);
+        }
+        console.log(count);
+        let good = new Map();
+        for (let report of reports) {
+          if (count.get(report[1]) >= k) {
+            good.set(report[0], good.get(report[0]) + 1 || 1);
+          }
+        }
+        id_list.map((x) => answer.push(good.get(x) || 0));
+        console.log(good);
+        return answer;
+      }
+      let id_list = ["muzi", "frodo", "apeach", "neo"];
+      let report = [
+        "muzi frodo",
+        "apeach frodo",
+        "frodo neo",
+        "muzi neo",
+        "apeach muzi",
+      ];
+      k = 2;
+      console.log(solution(id_list, report, k));
+    </script>
+  </body>
+</html>

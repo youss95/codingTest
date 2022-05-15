@@ -6,8 +6,8 @@
   <body>
     <script>
       function count(stable, mid) {
-        let cnt = 1,
-          ep = stable[0];
+        let cnt = 1;
+        let ep = stable[0];
         for (let i = 0; i < stable.length; i++) {
           if (stable[i] - ep >= mid) {
             cnt++;
@@ -18,10 +18,12 @@
       }
       function solution(c, stable) {
         let answer = 0;
-        let lt = 1; //최소거리
+        let lt = 1; //최소거리 (stable[0]이 안되는 이유: 최솟값을 나타내는것이다.)
         let rt = stable[stable.length - 1];
+
         while (lt <= rt) {
-          let mid = parseInt((lt + rt) / 2);
+          let mid = parseInt((lt + rt) / 2); //최솟값
+          console.log(mid);
           if (count(stable, mid) >= c) {
             answer = mid;
             lt = mid + 1;
@@ -30,8 +32,8 @@
         return answer;
       }
 
-      let arr = [1, 2, 4, 8, 9];
-      console.log(solution(3, arr));
+      let arr = [2, 3, 4, 8, 9];
+      console.log("a", solution(3, arr));
     </script>
   </body>
 </html>

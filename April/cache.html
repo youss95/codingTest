@@ -8,15 +8,14 @@
       function solution(size, arr) {
         let answer = Array.from({ length: size }, () => 0);
         arr.forEach((x) => {
-          //cache hit
           if (answer.includes(x)) {
             let idx = answer.indexOf(x);
             answer.splice(idx, 1);
             answer.unshift(x);
           } else {
             //cache miss
-            answer.unshift(x);
             answer.pop();
+            answer.unshift(x);
           }
         });
 

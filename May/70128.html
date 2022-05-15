@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b) {
+        let answer = a.reduce((acc, cur, i) => (acc += cur * b[i]), 0);
+        return answer;
+      }
+      let a = [1, 2, 3, 5];
+      let b = [-3, -1, 0, 2];
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>

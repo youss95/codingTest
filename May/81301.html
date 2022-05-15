@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let convert = [
+          "zero",
+          "one",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six",
+          "seven",
+          "eight",
+          "nine",
+        ];
+        let answer = "";
+        let tmp = "";
+        for (let x of s) {
+          if (isNaN(parseInt(x))) {
+            //숫자가 아니면
+
+            tmp += x;
+            if (convert.includes(tmp)) {
+              answer += convert.indexOf(tmp);
+              tmp = ""; //초기화
+            }
+          } else {
+            //숫자면
+            answer += x;
+          }
+        }
+        return parseInt(answer);
+      }
+      let s = "one4seveneight";
+      console.log(solution(s));
+    </script>
+  </body>
+</html>

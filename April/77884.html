@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(left, right) {
+        let answer = 0;
+        for (let x = left; x <= right; x++) {
+          if (Math.sqrt(x) % 1 === 0) answer -= x;
+          else answer += x;
+        }
+
+        return answer;
+      }
+      let left = 13;
+      let right = 17;
+      console.log(solution(left, right));
+    </script>
+  </body>
+</html>

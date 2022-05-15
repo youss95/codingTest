@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(absolutes, b) {
+        let answer = 0;
+        answer = absolutes.reduce(
+          (acc, cur, i) => acc + cur * (signs[i] ? 1 : -1),
+          0
+        );
+        return answer;
+      }
+      let ab = [4, 7, 12];
+      let signs = [true, false, true];
+      console.log(solution(ab, signs));
+    </script>
+  </body>
+</html>
